@@ -1,0 +1,43 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+.dialogsItems {
+  padding: 10px;
+}
+.messages {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.dialog {
+}
+.dialog.active {
+  color: red;
+}
+.myMessage,
+.friendMessage {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.moveRight {
+  align-self: flex-end;
+}
+.circul {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(145, 238, 241, 0.548);
+  margin-right: 10px;
+}
+.textMessage {
+  background-color: rgba(145, 238, 241, 0.548);
+  padding: 10px;
+  border-radius: 4px;
+}
+.textarea {
+  width: 50%;
+}

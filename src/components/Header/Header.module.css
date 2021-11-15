@@ -1,0 +1,23 @@
+.header {
+  grid-area: h;
+  background-color: rgb(52, 57, 97);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.466);
+}
+.header img {
+  width: 40px;
+  border-radius: 5px;
+}
+.loginBlock {
+  float: right;
+  color: white;
+}
+.loginBlock a {
+  color: white;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+}

@@ -1,0 +1,11 @@
+.descriptionBlock {
+  padding: 10px;
+}
+.profileImg {
+  width: 100%;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
