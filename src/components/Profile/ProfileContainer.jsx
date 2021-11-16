@@ -22,7 +22,7 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-
+    // console.log("RENDER PROFILE");
     return (
       <Profile 
         {...this.props} 

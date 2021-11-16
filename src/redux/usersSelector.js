@@ -1,6 +1,19 @@
-export const getUsers = (state) => {
-  return state.usersPage.users
+import { createSelector } from "reselect"
+
+// export const getUsers = (state) => {
+//   return state.usersPage.users.filter(u => true);
+// }
+
+//выше getUsers для демонстрации перересовки всего при каждом изменении в стейте
+
+export const getUsersSelector = (state) => {
+  return state.usersPage.users;
 }
+
+export const getUsers = createSelector(getUsersSelector, (users) => {
+  return users.filter(u => true)
+})
+
 export const getPageSize = (state) => {
   return state.usersPage.pageSize
 }
