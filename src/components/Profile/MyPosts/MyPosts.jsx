@@ -5,17 +5,15 @@ import { Field, reduxForm, reset } from "redux-form";
 import { maxLengthCreator, required } from "../../../utils/validators/validators";
 import { Textarea } from "../../common/Preloader/FormsControls/FormsControls";
 
-const MyPosts = (props) => {
-  // debugger
+const MyPosts = React.memo((props) => {
 
+  console.log('RENDEAR YOOO')
   let posts = [];
   props.postsData.forEach((item, index) => {
     posts.push(
       <Post post={item} key={index}/>
     )
   })
-
-  // let newPostElement = React.createRef()
   
   const onAddPost = (formData, dispatch) => {
     props.addPost(formData.newPostText);
@@ -31,7 +29,8 @@ const MyPosts = (props) => {
       </div>
     </div>
   )
-}
+})
+
 const maxLength10 = maxLengthCreator(10);
 
 let PostForm = (props) => {

@@ -3,6 +3,7 @@ import Preloader from "../../common/Preloader/Preloader";
 import s from './ProfileInfo.module.css';
 import defaultAvatar from '../../../../src/assets/images/defaultAvatar.png';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHoocks from "./ProfileStatusWithHoocks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
     <div className={s.descriptionBlock}>
       <div>
         <img className={s.avatar} src={props.profile.photos.small ? props.profile.photos.small : defaultAvatar}/>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusWithHoocks status={props.status} updateStatus={props.updateStatus}/>
       </div>
       <div>
         {props.profile.fullName}
