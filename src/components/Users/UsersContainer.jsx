@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import styles from "./Users.module.css"
 import { 
-  setCurrentPage, 
+  setCurrentPage,
+  setPortionOfPagesNumber, 
   toggleFollowingProgress,
   requestUsers,
   unfollow,
@@ -13,6 +15,7 @@ import {
   getPageSize,
   getTotalUsersCount,
   getCurrentPage,
+  getPortionOfPagesNumber,
   getIsFetching,
   getFollowingProgress
 } from '../../redux/usersSelector'
@@ -29,25 +32,28 @@ class UsersContainer extends React.Component {
 
   onPageChanged = (pageNumber) => {
     const {pageSize} = this.props;
-    this.props.requestUsers(pageNumber, pageSize)
+    this.props.requestUsers(pageNumber, pageSize);
+    this.props.setCurrentPage(pageNumber); //?
   }
   
   render() {
     console.log("RENDER users")
     return (
-      <>{
+      <div className={styles.usersContainer}>{
         this.props.isFetching ? <Preloader/> : null }
         <Users onPageChanged={this.onPageChanged}
         totalUsersCount={this.props.totalUsersCount}
         pageSize={this.props.pageSize}
         currentPage={this.props.currentPage}
+        portionOfPagesNumber={this.props.portionOfPagesNumber}
+        setPortionOfPagesNumber={this.props.setPortionOfPagesNumber}
         users={this.props.users}
         followingProgress={this.props.followingProgress}
         toggleFollowingProgress={this.props.toggleFollowingProgress}
         unfollow={this.props.unfollow}
         follow={this.props.follow} 
         />
-      </>
+      </div>
     )
   }
 }
@@ -60,6 +66,7 @@ let mapStateToProps = (state) => {
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),
+    portionOfPagesNumber: getPortionOfPagesNumber(state),
     isFetching: getIsFetching(state),
     followingProgress: getFollowingProgress(state),
   }
@@ -91,6 +98,7 @@ export default compose(
   connect(mapStateToProps, 
     {
       setCurrentPage,
+      setPortionOfPagesNumber,
       toggleFollowingProgress,
       requestUsers,
       unfollow,

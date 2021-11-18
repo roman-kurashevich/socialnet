@@ -8,14 +8,16 @@ const SET_CURRENT_PAGE = 'usersReducer/SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'usersReducer/SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'usersReducer/TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'usersReducer/TOGGLE_IS_FOLLOWING_PROGRESS';
+const SET_PORTION_OF_PAGES_NUMBER = 'usersReducer/SET_PORTION_OF_PAGES_NUMBER';
 
 let initialState = {
   users: [],
-  pageSize: 5,
+  pageSize: 10,
   totalUsersCount: 0,
   currentPage: 3,
   isFetching: true,
   followingProgress: [],
+  portionOfPagesNumber: 1,
   fake: 10
 }
 
@@ -53,6 +55,9 @@ const usersReducer = (state = initialState, action) => {
     case SET_CURRENT_PAGE:
       return {...state, currentPage: action.currentPage}
 
+    case SET_PORTION_OF_PAGES_NUMBER:
+      return {...state, portionOfPagesNumber: action.portionNumber}
+
     case SET_TOTAL_USERS_COUNT:
       return {...state, totalUsersCount: action.totalUsersCount}
 
@@ -77,6 +82,7 @@ export const followSucces = (userId) => ({type: FOLLOW, userId})
 export const unfollowSucces = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setPortionOfPagesNumber = (portionNumber) => ({type: SET_PORTION_OF_PAGES_NUMBER, portionNumber})
 export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount})
 export const setIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})

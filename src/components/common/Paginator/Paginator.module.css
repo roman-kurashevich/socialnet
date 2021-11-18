@@ -1,7 +1,16 @@
-.selectedPage {
-  font-weight: bold;
-  color: red;
+.paginator {
+  padding-bottom: 10px;
 }
 .pagesNumbers {
+  padding: 0 3px;
+  margin: 0 2px;
+  border: 1px solid white;
+  background: white;
   cursor: pointer;
+  border-radius: 4px;
+}
+.selectedPage {
+  font-weight: bold;
+  color: white;
+  background: rgb(52, 57, 97);
 }
