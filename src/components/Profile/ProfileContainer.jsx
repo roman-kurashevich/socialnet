@@ -29,6 +29,7 @@ class ProfileContainer extends React.Component {
         status={this.props.status} 
         profile={this.props.profile} 
         updateStatus={this.props.updateStatus}
+        userId={this.props.match.params.userId}
       />
     )
   }

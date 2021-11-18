@@ -14,7 +14,9 @@ const ProfileStatusWithHoocks = (props) => {
   }, [props.status])
 
   const activateEditMode = () => {
-    setEditMode(true);
+    if (!props.userId) {
+      setEditMode(true);
+    }
   }
   const deactivateEditMode = () => {
     setEditMode(false);

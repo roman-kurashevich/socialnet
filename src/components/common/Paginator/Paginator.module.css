@@ -1,0 +1,7 @@
+.selectedPage {
+  font-weight: bold;
+  color: red;
+}
+.pagesNumbers {
+  cursor: pointer;
+}

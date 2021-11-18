@@ -12,6 +12,7 @@ const Profile = (props) => {
       profile={props.profile} 
       updateStatus={props.updateStatus} 
       status={props.status}
+      userId={props.userId}
     />
     <MyPostsContainer 
       // store={props.store}

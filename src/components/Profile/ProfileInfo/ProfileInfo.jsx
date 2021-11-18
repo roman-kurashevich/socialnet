@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
     <div className={s.descriptionBlock}>
       <div>
         <img className={s.avatar} src={props.profile.photos.small ? props.profile.photos.small : defaultAvatar}/>
-        <ProfileStatusWithHoocks status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusWithHoocks userId={props.userId} status={props.status} updateStatus={props.updateStatus}/>
       </div>
       <div>
         {props.profile.fullName}

@@ -7,22 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 import store from './redux/reduxStore';
 import { Provider } from 'react-redux';
 
-// setInterval(() => {
-//   store.dispatch({type: "FAKE"})
-// }, 1000)
-
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
           <App 
-            // store={store} // весь стор
-            // state={state} // весь state
-            // dispatch={store.dispatch.bind(store)}
-            // addPost={store.addPost.bind(store)}  // добавление поста
-            // updateNewPostText={store.updateNewPostText.bind(store)} // запись каждого символа при вводе в state.profilePage.newPostText
-            // sendMessage={store.sendMessage.bind(store)} // отправка сообщения
-            // updateNewMessageText={store.updateNewMessageText.bind(store)} //запись символов сообщения в стэйт при вводе
           />
       </Provider>
     </BrowserRouter>,
