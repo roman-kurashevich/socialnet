@@ -12,9 +12,11 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/Login';
 import { initializedApp } from './redux/appReducer'
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import Preloader from './components/common/Preloader/Preloader';
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/reduxStore';
 
 class  App extends React.Component {
 
@@ -53,7 +55,18 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default  compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, {initializedApp})
-  )(App);
+)(App);
+
+let SamuraiJSApp = (props) => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+          <AppContainer/>
+      </Provider>
+    </BrowserRouter>
+  )
+}
+export default SamuraiJSApp;
