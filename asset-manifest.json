@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/roman-kurashevich/socialnet/static/css/main.244db41f.chunk.css",
-    "main.js": "/roman-kurashevich/socialnet/static/js/main.d7ce984a.chunk.js",
-    "main.js.map": "/roman-kurashevich/socialnet/static/js/main.d7ce984a.chunk.js.map",
+    "main.js": "/roman-kurashevich/socialnet/static/js/main.be69a008.chunk.js",
+    "main.js.map": "/roman-kurashevich/socialnet/static/js/main.be69a008.chunk.js.map",
     "runtime-main.js": "/roman-kurashevich/socialnet/static/js/runtime-main.99edd917.js",
     "runtime-main.js.map": "/roman-kurashevich/socialnet/static/js/runtime-main.99edd917.js.map",
     "static/js/2.089a99cf.chunk.js": "/roman-kurashevich/socialnet/static/js/2.089a99cf.chunk.js",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.99edd917.js",
     "static/js/2.089a99cf.chunk.js",
     "static/css/main.244db41f.chunk.css",
-    "static/js/main.d7ce984a.chunk.js"
+    "static/js/main.be69a008.chunk.js"
   ]
 }
