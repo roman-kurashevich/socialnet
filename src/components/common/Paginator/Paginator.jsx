@@ -9,10 +9,10 @@ let Paginator = (props) => {
     pages.push(i)
   }
 
-  let portionCount = Math.ceil(pagesCount / props.pageSize);
+  let portionCount = Math.ceil(pagesCount / props.portionSize);
   let [portionNumber, setPortionNumber] = useState(props.portionOfPagesNumber);
-  let leftPortionPageNumber = (portionNumber - 1) * props.pageSize + 1;
-  let rightPortionPageNumber = portionNumber * props.pageSize;
+  let leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1;
+  let rightPortionPageNumber = portionNumber * props.portionSize;
 
   let onPageChanged = (p) => {
     props.onPageChanged(p)

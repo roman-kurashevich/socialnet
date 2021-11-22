@@ -12,7 +12,7 @@ const SET_PORTION_OF_PAGES_NUMBER = 'usersReducer/SET_PORTION_OF_PAGES_NUMBER';
 
 let initialState = {
   users: [],
-  pageSize: 10,
+  pageSize: 5,
   totalUsersCount: 0,
   currentPage: 3,
   isFetching: true,
