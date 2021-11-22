@@ -14,7 +14,7 @@ const ProfileStatusWithHoocks = (props) => {
   }, [props.status])
 
   const activateEditMode = () => {
-    if (!props.userId) {
+    if (props.isOwner) {
       setEditMode(true);
     }
   }
