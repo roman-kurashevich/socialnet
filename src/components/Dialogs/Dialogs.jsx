@@ -1,10 +1,10 @@
 import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./Message/Message";
-import s from './Dialogs.module.css'
-import { Field, reduxForm, reset } from "redux-form";
-import { Textarea } from "../common/FormsControls/FormsControls";
-import { maxLengthCreator, required } from "../../utils/validators/validators";
+import s from './Dialogs.module.css';
+import {Field, reduxForm, reset} from "redux-form";
+import {Textarea} from "../common/FormsControls/FormsControls";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
 
 const Dialogs = (props) => {
 

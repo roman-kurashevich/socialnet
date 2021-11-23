@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-import { compose } from "redux";
+import {connect} from "react-redux";
+import {compose} from "redux";
 import styles from "./Users.module.css"
 import { 
   setCurrentPage,
@@ -21,7 +21,8 @@ import {
 } from '../../redux/usersSelector'
 import Preloader from "../common/Preloader/Preloader";
 import Users from "./Users";
-import {withAuthRedirect} from '../../hoc/withAuthRedirect'
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+
 
 class UsersContainer extends React.Component {
 
@@ -37,7 +38,6 @@ class UsersContainer extends React.Component {
   }
   
   render() {
-    console.log("RENDER users")
     return (
       <div className={styles.usersContainer}>{
         this.props.isFetching ? <Preloader/> : null }
@@ -58,9 +58,7 @@ class UsersContainer extends React.Component {
   }
 }
 
-
 let mapStateToProps = (state) => {
-  console.log("mapStateToProps USERS")
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
@@ -71,6 +69,7 @@ let mapStateToProps = (state) => {
     followingProgress: getFollowingProgress(state),
   }
 }
+
 // let mapDispatchToProps = (dispatch) => {
 //   return {
 //     follow: (userId) => {

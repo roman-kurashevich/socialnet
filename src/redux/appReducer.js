@@ -1,9 +1,10 @@
-import { getAuthUserData } from './authReducer';
+import {getAuthUserData} from './authReducer';
 
 const INITIALIZED_SUCCESS = 'appReducer/INITIALIZED_SUCCESS';
 
 let initialState = {
   initialized: false,
+  globalError: null
 }
 
 const appReducer = (state = initialState, action) => {

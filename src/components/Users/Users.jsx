@@ -14,12 +14,11 @@ let Users = ({totalUsersCount, pageSize, currentPage, onPageChanged, ...props}) 
                  portionOfPagesNumber={props.portionOfPagesNumber}
                  setPortionOfPagesNumber={props.setPortionOfPagesNumber}
       />
-      {props.users.map((user) => <User 
-                                  key={user.id} 
-                                  user={user} 
-                                  followingProgress={props.followingProgress}
-                                  unfollow={props.unfollow} 
-                                  follow={props.follow}
+      {props.users.map((user) => <User key={user.id} 
+                                       user={user} 
+                                       followingProgress={props.followingProgress}
+                                       unfollow={props.unfollow} 
+                                       follow={props.follow}
                                   />)}
     </div>
   )

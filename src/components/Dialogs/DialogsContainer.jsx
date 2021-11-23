@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
-import {sendMessageActionCreator} from '../../redux/dialogsReducer'
+import {connect} from "react-redux";
+import {sendMessageActionCreator} from '../../redux/dialogsReducer';
 import Dialogs from "./Dialogs";
-import withAuthRedirect from '../../hoc/withAuthRedirect'
-import { compose } from "redux";
+import withAuthRedirect from '../../hoc/withAuthRedirect';
+import {compose} from "redux";
 
 //пример использования контекста до внедрения redux provider
 
@@ -53,6 +53,7 @@ let mapStateToProps = (state) => {
 
   }
 }
+
 let mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: (newMessageBody) => {

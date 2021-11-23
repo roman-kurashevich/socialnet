@@ -16,14 +16,7 @@ const Profile = (props) => {
       savePhoto={props.savePhoto}
       saveProfile={props.saveProfile}
     />
-    <MyPostsContainer 
-      // store={props.store}
-      // postsData={props.profilePage.postsData} // берем только state.profilePage.postsData
-      // newPostText={props.profilePage.newPostText} // берем только свойство для текущего текста state.profilePage.newPostText
-      // dispatch={props.dispatch}
-      // addPost={props.addPost} 
-      // updateNewPostText={props.updateNewPostText}
-    />
+    <MyPostsContainer />
   </div>
 )
 }

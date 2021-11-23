@@ -1,5 +1,5 @@
-import { stopSubmit } from 'redux-form';
-import { authAPI, securityAPI } from '../api/api'
+import {stopSubmit} from 'redux-form';
+import {authAPI, securityAPI} from '../api/api'
 
 const SET_USER_DATA = 'authReducer/SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'authReducer/TOGGLE_IS_FETCHING';
@@ -65,7 +65,6 @@ export const login = (email, password, rememberMe, captcha) => {
       dispatch(getAuthUserData())
     } else {
       if(response.data.resultCode === 10) {
-        debugger
         dispatch(getCaptchaUrl())
       }
 
@@ -88,11 +87,9 @@ export const getCaptchaUrl = () => {
   return async (dispatch) => {
     const response = await securityAPI.getCaptchaUrl();
     const captchaUrl = response.data.url;
-    debugger
 
     dispatch(getCaptchaUrlSuccess(captchaUrl))
   }
 }
-
 
 export default authReducer;

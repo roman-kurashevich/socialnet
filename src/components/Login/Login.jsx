@@ -1,10 +1,10 @@
 import React from "react";
-import { reduxForm } from 'redux-form';
-import { maxLengthCreator, required } from "../../utils/validators/validators";
-import { createField, Input } from "../common/FormsControls/FormsControls";
-import { login, getCaptchaUrl } from "../../redux/authReducer"
-import { connect } from "react-redux";
-import { Redirect } from "react-router";
+import {reduxForm} from 'redux-form';
+import {maxLengthCreator, required} from "../../utils/validators/validators";
+import {createField, Input} from "../common/FormsControls/FormsControls";
+import {login, getCaptchaUrl} from "../../redux/authReducer"
+import {connect} from "react-redux";
+import {Redirect} from "react-router";
 import style from '../common/FormsControls/FormsControl.module.css'
 
 const maxLength30 = maxLengthCreator(30)
@@ -63,4 +63,5 @@ const mapStateToProps = (state) => {
     // errorMessage: state.auth.errorMessage
   }
 }
+
 export default connect(mapStateToProps, { login })(Login);

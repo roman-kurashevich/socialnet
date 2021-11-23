@@ -1,13 +1,13 @@
 import React from "react";
 import Post from "./Post/Post";
 import s from './MyPosts.module.css';
-import { Field, reduxForm, reset } from "redux-form";
-import { maxLengthCreator, required } from "../../../utils/validators/validators";
-import { Textarea } from "../../common/FormsControls/FormsControls";
+import {Field, reduxForm, reset} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../common/FormsControls/FormsControls";
+
 
 const MyPosts = React.memo((props) => {
 
-  console.log('RENDEAR YOOO')
   let posts = [];
   props.postsData.forEach((item, index) => {
     posts.push(
@@ -31,7 +31,7 @@ const MyPosts = React.memo((props) => {
   )
 })
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength30 = maxLengthCreator(30);
 
 let PostForm = (props) => {
   return (
@@ -41,14 +41,13 @@ let PostForm = (props) => {
           component={Textarea} 
           name={'newPostText'} 
           placeholder="What's new?"
-          validate={[required, maxLength10]}
+          validate={[maxLength30]}
         />
       </div>
       <div>
         <button>Add post</button>
       </div>
     </form>
-
   )
 }
 

@@ -1,10 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
 import Profile from "./Profile";
-import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from '../../redux/profileReducer'
-import { withRouter } from "react-router";
-import { withAuthRedirect } from '../../hoc/withAuthRedirect'
-import { compose } from "redux";
+import {connect} from "react-redux";
+import {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile} from '../../redux/profileReducer'
+import {withRouter} from "react-router";
+import {withAuthRedirect} from '../../hoc/withAuthRedirect'
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
@@ -32,7 +32,6 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-    // console.log("RENDER PROFILE");
     return (
       <Profile 
         {...this.props} 

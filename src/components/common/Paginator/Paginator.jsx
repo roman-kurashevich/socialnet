@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import {useState} from "react";
 import styles from './Paginator.module.css';
 
 let Paginator = (props) => {
@@ -36,6 +36,5 @@ let Paginator = (props) => {
     </div>  
   )
 }
-
 
 export default Paginator;

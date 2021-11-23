@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import s from './ProfileInfo.module.css';
 import defaultAvatar from '../../../../src/assets/images/defaultAvatar.png';
@@ -6,7 +6,6 @@ import ProfileStatusWithHoocks from "./ProfileStatusWithHoocks";
 import ProfileDataFormReduxForm from "./ProfileDataForm";
 
 const ProfileInfo = (props) => {
-
 
   let [editMode, setEditMode] = useState(false);
 
@@ -99,6 +98,5 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
       </div>
   )
 }
-
 
 export default ProfileInfo;
