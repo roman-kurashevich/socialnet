@@ -4,7 +4,7 @@ import {compose} from "redux";
 import styles from "./Users.module.css"
 import { 
   setCurrentPage,
-  setPortionOfPagesNumber, 
+  setPortionOfPagesNumber,
   toggleFollowingProgress,
   requestUsers,
   unfollow,
