@@ -180,7 +180,6 @@ const followUnfollowFlow = async (
   if (response.data.resultCode === 0) {
     dispatch(actionCreator(userId));
   }
-
   dispatch(toggleFollowingProgress(false, userId));
 };
 
