@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import styles from "./Users.module.css";
 import {
-  setCurrentPage,
-  setPortionOfPagesNumber,
-  toggleFollowingProgress,
+  actions,
   requestUsers,
   unfollow,
   follow,
@@ -34,6 +32,8 @@ type MapStateToPropsType = {
   users: Array<UserType>
   followingProgress: Array<Number>
 }
+// type MapStateToPropsType = ReturnType<typeof mapStateToProps>
+
 type MapDispatchPropsType = {
   requestUsers: (pageNumber: number, pageSize: number) => void
   setCurrentPage: (pageNumber: number) => void
@@ -42,10 +42,8 @@ type MapDispatchPropsType = {
   unfollow: (userId: number) => void
   follow: (userId: number) => void
 }
-type OwnPropsType = {
-  pageTitle: string
-}
-type PropsType = MapStateToPropsType & MapDispatchPropsType & OwnPropsType
+
+type PropsType = MapStateToPropsType & MapDispatchPropsType
 
 class UsersContainer extends React.Component<PropsType> {
   componentDidMount() {
@@ -62,7 +60,6 @@ class UsersContainer extends React.Component<PropsType> {
   render() {
     return (
       <div className={styles.usersContainer}>
-        <h2>{this.props.pageTitle}</h2>
         {this.props.isFetching ? <Preloader /> : null}
         <Users
           onPageChanged={this.onPageChanged}
@@ -81,7 +78,7 @@ class UsersContainer extends React.Component<PropsType> {
   }
 }
 
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
+let mapStateToProps = (state: AppStateType): MapStateToPropsType=> {
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
@@ -116,14 +113,15 @@ let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 //   }
 // }
 
-export default compose(
-  connect<MapStateToPropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
-    setCurrentPage,
-    setPortionOfPagesNumber,
-    toggleFollowingProgress,
+export default compose<React.ComponentType>(
+  connect<MapStateToPropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {
     requestUsers,
     unfollow,
     follow,
+    setCurrentPage: actions.setCurrentPage,
+    setPortionOfPagesNumber: actions.setPortionOfPagesNumber,
+    toggleFollowingProgress: actions.toggleFollowingProgress
+
   }),
   withAuthRedirect
 )(UsersContainer);

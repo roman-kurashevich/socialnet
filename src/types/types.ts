@@ -26,6 +26,7 @@ export type ProfileType = {
   userId: number;
   lookingForAJob: boolean;
   lookingForAJobDescription: string;
+  aboutMe: string;
   fullName: string;
   contacts: ContactsType;
   photos: PhotosType;
@@ -37,4 +38,17 @@ export type UserType = {
   status: string;
   photos: PhotosType;
   followed: boolean;
+};
+
+export type DialogType = {
+  id: number;
+  name: string;
+  avatarSrc: string;
+};
+
+export type MessageType = {
+  id: number;
+  author: string;
+  likesCount: number;
+  message: string;
 };

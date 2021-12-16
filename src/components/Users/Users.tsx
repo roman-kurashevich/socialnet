@@ -11,7 +11,7 @@ type PropsType = {
   portionOfPagesNumber: number
   followingProgress: Array<Number>
 
-  onPageChanged: (p: any) => void
+  onPageChanged: (p: number) => void
   setPortionOfPagesNumber: (portionNumber: number) => void
   unfollow: (userId: number) => void
   follow: (userId: number) => void
