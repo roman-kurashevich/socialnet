@@ -7,6 +7,7 @@ import {
   requestUsers,
   unfollow,
   follow,
+  FilterType,
 } from "../../redux/usersReducer";
 import {
   getUsers,
@@ -16,6 +17,7 @@ import {
   getPortionOfPagesNumber,
   getIsFetching,
   getFollowingProgress,
+  getFilter
 } from "../../redux/usersSelector";
 import Preloader from "../common/Preloader/Preloader";
 import Users from "./Users";
@@ -31,31 +33,42 @@ type MapStateToPropsType = {
   portionOfPagesNumber: number
   users: Array<UserType>
   followingProgress: Array<Number>
+  filter: FilterType
 }
 // type MapStateToPropsType = ReturnType<typeof mapStateToProps>
 
 type MapDispatchPropsType = {
-  requestUsers: (pageNumber: number, pageSize: number) => void
+  requestUsers: (pageNumber: number, pageSize: number, filter: FilterType) => void
   setCurrentPage: (pageNumber: number) => void
   setPortionOfPagesNumber: (portionNumber: number) => void
   toggleFollowingProgress: (isFetching: boolean, userId: number) => void
   unfollow: (userId: number) => void
   follow: (userId: number) => void
+  setFilter: (filter: FilterType) => void
+
 }
 
 type PropsType = MapStateToPropsType & MapDispatchPropsType
 
 class UsersContainer extends React.Component<PropsType> {
   componentDidMount() {
-    const { currentPage, pageSize } = this.props;
-    this.props.requestUsers(currentPage, pageSize);
+    const { currentPage, pageSize, filter } = this.props;
+    this.props.requestUsers(currentPage, pageSize, filter);
   }
 
   onPageChanged = (pageNumber: number) => {
-    const { pageSize } = this.props;
-    this.props.requestUsers(pageNumber, pageSize);
+    const { pageSize, filter } = this.props;
+    this.props.requestUsers(pageNumber, pageSize, filter);
     this.props.setCurrentPage(pageNumber); //?
   };
+
+  // onFilterChanged = (filter: FilterType) => {
+  //   debugger
+  //   this.props.setPortionOfPagesNumber(1)
+  //   debugger
+  //   const { pageSize } = this.props;
+  //   this.props.requestUsers(1, pageSize, filter.term);
+  // }
 
   render() {
     return (
@@ -63,6 +76,7 @@ class UsersContainer extends React.Component<PropsType> {
         {this.props.isFetching ? <Preloader /> : null}
         <Users
           onPageChanged={this.onPageChanged}
+          // onFilterChanged={this.onFilterChanged}
           totalUsersCount={this.props.totalUsersCount}
           pageSize={this.props.pageSize}
           currentPage={this.props.currentPage}
@@ -72,6 +86,8 @@ class UsersContainer extends React.Component<PropsType> {
           followingProgress={this.props.followingProgress}
           unfollow={this.props.unfollow}
           follow={this.props.follow}
+          filter={this.props.filter}
+          setFilter={this.props.setFilter}
         />
       </div>
     );
@@ -87,6 +103,7 @@ let mapStateToProps = (state: AppStateType): MapStateToPropsType=> {
     portionOfPagesNumber: getPortionOfPagesNumber(state),
     isFetching: getIsFetching(state),
     followingProgress: getFollowingProgress(state),
+    filter: getFilter(state)
   };
 };
 
@@ -120,7 +137,8 @@ export default compose<React.ComponentType>(
     follow,
     setCurrentPage: actions.setCurrentPage,
     setPortionOfPagesNumber: actions.setPortionOfPagesNumber,
-    toggleFollowingProgress: actions.toggleFollowingProgress
+    toggleFollowingProgress: actions.toggleFollowingProgress,
+    setFilter: actions.setFilter
 
   }),
   withAuthRedirect
