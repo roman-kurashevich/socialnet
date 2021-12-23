@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { FilterType } from "../../../redux/usersReducer";
+import { getFilter } from "../../../redux/usersSelector";
 import styles from "./Paginator.module.css";
 
 type PropsType = {
@@ -8,12 +11,14 @@ type PropsType = {
   portionSize: number
   currentPage: number
   portionOfPagesNumber: number
+  filter: FilterType
 
-  onPageChanged: (p: any) => void
+  onPageChanged: (p: number, filter: FilterType) => void
   setPortionOfPagesNumber: (portionNumber: number) => void
 };
 
 let Paginator: React.FC<PropsType> = (props) => {
+
   let pagesCount = Math.ceil(props.totalItemsCount / props.pageSize);
   let pages: Array<number> = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -32,7 +37,7 @@ let Paginator: React.FC<PropsType> = (props) => {
   let rightPortionPageNumber = portionNumber * props.portionSize;
 
   let onPageChanged = (p: any): void => {
-    props.onPageChanged(p);
+    props.onPageChanged(p, props.filter);
     props.setPortionOfPagesNumber(portionNumber);
   };
 

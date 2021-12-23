@@ -9,8 +9,8 @@ const userSearchformValidate = (values: any) => {
 }
 
 type PropsType = {
-  setFilter: (filter: FilterType) => void
-  onPageChanged: (p: number) => void
+  // setFilter: (filter: FilterType) => void
+  onPageChanged: (p: number, filter: FilterType) => void
   setPortionOfPagesNumber: (portionNumber: number) => void
 }
 
@@ -27,10 +27,10 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
         term: values.term,
         friend: values.friend === 'null' ? null : values.friend === 'false' ? false : true
       }
-
-      props.setFilter(filter)
+      
+      // props.setFilter(filter)
       props.setPortionOfPagesNumber(1)
-      props.onPageChanged(1)
+      props.onPageChanged(1, filter)
       setSubmitting(false)
   }
 

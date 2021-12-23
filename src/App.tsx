@@ -6,9 +6,9 @@ import { HashRouter } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import UsersContainer from "./components/Users/UsersContainer";
+import { UsersPage } from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
+import {LoginPage} from "./components/Login/Login";
 import {
   initializedApp,
   setGlobalError,
@@ -94,7 +94,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
             <Route path="/settings" component={Settings} />
             <Route
               path="/users"
-              render={() => <UsersContainer />}
+              render={() => <UsersPage />}
             />
             <Route path="/login" render={() => <LoginPage />} />
             <Route path="*" render={() => <div>404 NOT FOUND</div>} />
