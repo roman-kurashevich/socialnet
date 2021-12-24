@@ -20,6 +20,7 @@ import Preloader from "./components/common/Preloader/Preloader";
 import store, { AppStateType } from "./redux/reduxStore";
 import {withSuspense} from "./hoc/withSuspense";
 import Popup from "./components/common/Popup/Popup";
+import { QueryParamProvider } from "use-query-params";
 
 const DialogsContainer = React.lazy(
   () => import("./components/Dialogs/DialogsContainer")
@@ -123,7 +124,9 @@ let SamuraiJSApp: React.FC = () => {
     // basename={process.env.PUBLIC_URL}
     <HashRouter>
       <Provider store={store}>
-        <AppContainer />
+        <QueryParamProvider ReactRouterRoute={Route}>
+          <AppContainer />
+        </QueryParamProvider>
       </Provider>
     </HashRouter>
   );

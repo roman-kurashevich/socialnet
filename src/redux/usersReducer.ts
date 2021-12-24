@@ -48,6 +48,9 @@ const usersReducer = (
     case "usersReducer/SET_CURRENT_PAGE":
       return { ...state, currentPage: action.currentPage };
 
+    case "usersReducer/SET_PAGE_SIZE":
+      return { ...state, currentPage: action.pageSize };
+
     case "usersReducer/SET_PORTION_OF_PAGES_NUMBER":
       return { ...state, portionOfPagesNumber: action.portionNumber };
 
@@ -87,6 +90,11 @@ export const actions = {
     ({
       type: "usersReducer/SET_CURRENT_PAGE",
       currentPage,
+    } as const),
+  setPageSize: (pageSize: number) =>
+    ({
+      type: "usersReducer/SET_PAGE_SIZE",
+      pageSize,
     } as const),
   setPortionOfPagesNumber: (portionNumber: number) =>
     ({
