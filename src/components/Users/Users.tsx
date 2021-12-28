@@ -67,7 +67,7 @@ export const Users: React.FC = () => {
     // if (pageSize) query.count = String(pageSize)
 
     // history.push({
-    //   pathname: "/users",
+    //   pathname: "/developers",
     //   search: queryString.stringify(query)
     //   // search: `?count=${pageSize}&page=${currentPage}&term=${filter.term}&friend=${filter.friend}`
     // })
